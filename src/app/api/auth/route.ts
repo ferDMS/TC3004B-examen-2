@@ -23,17 +23,17 @@ const users: User[] = [
 ]
 
 export async function POST(req: NextRequest) {
-  const { email, password } = await req.json()
+  const { username, password } = await req.json()
 
-  if (!email || !password) {
+  if (!username || !password) {
     return NextResponse.json(
-      { valid: false, message: 'Email and password are required' },
+      { valid: false, message: 'Username and password are required' },
       { status: 400 }
     )
   }
 
   const user = users.find(
-    (u) => u.email === email && u.password === password
+    (u) => u.username === username && u.password === password
   )
 
   if (!user) {
