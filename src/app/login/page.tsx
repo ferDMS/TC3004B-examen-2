@@ -1,12 +1,17 @@
 'use client'
 
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { UserContext } from '../../context/UserContext'
+import type { UserPublic } from '../../types/User'
 
 export default function LoginPage() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  
+  const { setUser } = useContext(UserContext)
+  
   const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,6 +27,7 @@ export default function LoginPage() {
       if (!data.valid) {
         setError(data.message || 'Credenciales inválidas')
       } else {
+        setUser(data.user as UserPublic)
         router.push('/welcome')
       }
     } catch {

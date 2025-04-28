@@ -4,3 +4,9 @@ export type User = {
   fullName: string
   email: string
 }
+
+export interface UserPublic {
+  username: string
+  fullName: string
+  email: string
+}
