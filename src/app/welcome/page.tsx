@@ -2,7 +2,6 @@
 
 import { useContext } from 'react'
 import { UserContext } from '@/context/UserContext'
-import { UserPublic } from '@/types/User'
 
 export default function WelcomePage() {
   const { user } = useContext(UserContext)
