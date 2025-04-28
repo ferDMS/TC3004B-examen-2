@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
 
   if (!username || !password) {
     return NextResponse.json(
-      { valid: false, message: 'Username and password are required' },
+      { valid: false, message: 'Se require usuario y contraseña' },
       { status: 400 }
     )
   }
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
 
   if (!user) {
     return NextResponse.json(
-      { valid: false, message: 'Invalid credentials' },
+      { valid: false, message: 'Usuario o contraseña incorrectos' },
       { status: 401 }
     )
   }
